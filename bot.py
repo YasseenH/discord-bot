@@ -1,4 +1,4 @@
-import os
+import os #SSSSS
 
 from discord import Intents, Client
 from dotenv import load_dotenv
