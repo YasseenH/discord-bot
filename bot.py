@@ -33,5 +33,20 @@ async def joke(ctx):
     await ctx.send(json.loads(response.text)['setup'])
     await ctx.send(json.loads(response.text)['punchline'])
 
+@bot.command(pass_context = True)
+async def join_voice(ctx):
+    if (ctx.author.voice):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+    else:
+        await ctx.send("There's no one in the voice channel")
+
+@bot.command(pass_context = True)
+async def leave_voice(ctx):
+    if (ctx.voice_client):
+        await ctx.guild.voice_client.disconnect()
+        await ctx.send("I left")
+    else:
+        await ctx.send("I am not in the voice channel")
 
 bot.run(os.getenv('DISCORD_TOKEN'))
