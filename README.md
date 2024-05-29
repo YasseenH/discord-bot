@@ -10,6 +10,9 @@ Prefix for Commands: !
 | -------- | -------- |
 | !hello  | Prints out a welcome message  |
 | !help  | Prints a message listing the functions  |
+| !joke  | Prints a random joke from the Postman Joke API in the chat. |
 
 ## Learned how to:
 Utilize .gitignore to hide certain files from being staged and .env to hide sensitive information (TOKEN)
+
+Parse JSON output and manipulate to print certain elements
