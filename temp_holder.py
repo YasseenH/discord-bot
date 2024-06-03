@@ -4,12 +4,6 @@
 ##
 ##
 
-
-# #Hello Command: Prints a simple message
-# @bot.command()
-# async def hello(ctx):
-#     await ctx.send("Hello, I am alive!")
-
 # #Join_Voice: Simple Command that allows the Bot to join the voice channel
 # @bot.command(pass_context = True)
 # async def join_voice(ctx):

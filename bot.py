@@ -18,6 +18,11 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 async def on_ready():
     print(f'{bot.user} has connected to Discord Server')
 
+# Hello Command: Prints a simple message
+@bot.command()
+async def hello(ctx):
+    await ctx.send("Hello, I am alive and Nothing!")
+
 async def load_extensions():
     initial_extensions = []
     for file in os.listdir('./cogs'):

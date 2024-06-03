@@ -11,8 +11,11 @@ Prefix for Commands: !
 | !hello  | Prints out a welcome message  |
 | !help  | Prints a message listing the functions  |
 | !joke  | Prints a random joke from the Postman Joke API in the chat. |
+| !tldr  | Takes a PDF attachment and creates a TLDR (too long didn't read) for it |
 
 ## Learned how to:
 Utilize .gitignore to hide certain files from being staged and .env to hide sensitive information (TOKEN)
 
 Parse JSON output and manipulate to print certain elements
+
+Organize my commands in different files using Cogs making it easier to understand
