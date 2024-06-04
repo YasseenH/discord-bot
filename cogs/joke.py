@@ -2,7 +2,7 @@ from discord.ext import commands
 import requests
 import json
 
-#Joke Command: Uses a joke API to print a simple joke
+# Joke Command: Uses a joke API to print a simple joke
 class Joke(commands.Cog):
 
     def __init__(self, bot):
@@ -16,7 +16,8 @@ class Joke(commands.Cog):
         headers = {}
 
         response = requests.request("GET", url, headers=headers, data=payload)
-
+        
+        # Sends the Joke from the url
         await ctx.send(json.loads(response.text)['setup'])
         await ctx.send(json.loads(response.text)['punchline'])
 
