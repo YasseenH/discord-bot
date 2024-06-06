@@ -6,6 +6,7 @@ import os
 import json
 from io import BytesIO
 from nltk.tokenize import sent_tokenize
+import google.generativeai as genai
 
 # tldr: A command that takes a pdf file and creates a tldr for it
 class TLDR(commands.Cog):
@@ -20,7 +21,12 @@ class TLDR(commands.Cog):
         pdf_stream = BytesIO(file_data)
         file_text = self.convert_text_from_pdf(pdf_stream)
         tldr_text = self.summarize_text(file_text)
-        await ctx.send(tldr_text)
+        print(tldr_text)
+        with open("Output.txt", "w") as text_file:
+            text_file.write(tldr_text)
+        await ctx.send("Here is your TLDR:")
+        await ctx.send(file=discord.File("Output.txt"))
+        os.remove("Output.txt")
 
     def convert_text_from_pdf(self, pdf_stream: BytesIO):
         # Create a PdfReader object
@@ -34,25 +40,18 @@ class TLDR(commands.Cog):
         return ("".join(pdf_text[:]))
 
     def summarize_text(self, text: str):
-        url = "https://tldrthis.p.rapidapi.com/v1/model/abstractive/summarize-text/"
-        payload = {
-            "text": text,
-            "num_sentences": self.count_sentences(text)
-        }
-        headers = {
-            "content-type": "application/json",
-            "X-RapidAPI-Key": os.getenv('API_KEY'),
-            "X-RapidAPI-Host": "tldrthis.p.rapidapi.com"
-        }
-        response = requests.post(url, json=payload, headers=headers)
-        print(json.loads(response.text)['summary'])
-        return (json.loads(response.text)['summary'])
+        # Uses Gemini AI to summarize text
+        # TODO: Allow the user to type in the prompt or use the default TLDR prompt
+        genai.configure(api_key=(os.getenv('GEMINI_KEY')))
+        model = genai.GenerativeModel('gemini-1.5-flash')
+        print("Here")
+        response = model.generate_content("Summarize this text in detail for a college student taking notes: " + text)
+        return response.text
     
     def count_sentences(self, text: str):
         sentences = text
         number_of_sentences = sent_tokenize(sentences)
         return len(number_of_sentences)
-
 
 async def setup(bot):
     await bot.add_cog(TLDR(bot))
