@@ -10,12 +10,12 @@ My journey with Python began with the guidance and motivation of my mentor, Luck
 
 Prefix for Commands: `!`
 
-| Command  | Function |
-| -------- | -------- |
-| !hello  | Prints out a welcome message  |
-| !help  | Prints a message listing the functions  |
-| !joke  | Prints a random joke from the Postman Joke API in the chat. |
-| !tldr  | Takes a PDF attachment and creates a TLDR (too long didn't read) for it |
+| Command | Function |
+| ------- | -------- |
+| `!hello` | Prints out a welcome message |
+| `!help` | Prints a message listing the functions |
+| `!joke` | Prints a random joke from the Postman Joke API in the chat. |
+| `!tldr` | Takes a PDF attachment and creates a TLDR (too long didn't read) for it |
 
 
 <img width="400" alt="Screenshot 2024-08-06 at 12 27 26 AM" src="https://github.com/user-attachments/assets/9073b3c5-35e8-444f-98b2-1b69d193e47e">
