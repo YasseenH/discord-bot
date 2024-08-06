@@ -17,6 +17,11 @@ Prefix for Commands: `!`
 | !joke  | Prints a random joke from the Postman Joke API in the chat. |
 | !tldr  | Takes a PDF attachment and creates a TLDR (too long didn't read) for it |
 
+
+<img width="400" alt="Screenshot 2024-08-06 at 12 27 26 AM" src="https://github.com/user-attachments/assets/9073b3c5-35e8-444f-98b2-1b69d193e47e">
+<img width="518" alt="Screenshot 2024-08-06 at 12 20 52 AM" src="https://github.com/user-attachments/assets/d699c6fb-a2ad-40c3-82ac-f5ffa0f7d673">
+
+
 ## Project Learnings
 
 - **.gitignore & .env**: Utilize `.gitignore` to exclude certain files from being staged and `.env` to hide sensitive information like tokens.
